@@ -4,20 +4,22 @@ import React from 'react';
 function IngredientList(props) {
     const ingredientListItems = props.ingredients.map((ingredient, index) => {
         return (
-            <li key={index} 
-                className={ ingredient.prepared ? 'prepared' : '' }
-                // TODO: Add onClick event
-                
+            <li key={index}
+                className={ingredient.prepared ? 'prepared' : ''}
+                onClick={() => props.onClick(index)}
             >
-                { ingredient.name }
+                {ingredient.name}
             </li>
         );
     });
 
     return (
-        <ul>
-            { ingredientListItems }
-        </ul>
+        <div>
+            <h2>Ingredients</h2>
+            <ul>
+                {ingredientListItems}
+            </ul>
+        </div>
     );
 }
 
